@@ -15,7 +15,6 @@
 !**/*.css.map
 !**/*.svg
 !Gemfile
-!Gemfile.lock
 !**/*.markdown
 
 # 4. Block some directories and files
