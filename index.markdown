@@ -1,5 +1,5 @@
 ---
-title: AgentScape: An Open and Lightweight Directory for AI Agents
+title: AgentScape - An Open and Lightweight Directory for AI Agents
 layout: post
 ---
 
