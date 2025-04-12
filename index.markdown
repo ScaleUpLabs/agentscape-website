@@ -1,8 +1,7 @@
 ---
+title: AgentScape: An Open and Lightweight Directory for AI Agents
 layout: post
 ---
-
-## AgentScape: An Open and Lightweight Directory for AI Agents
 
 AgentScape is an open and lightweight, registry for exposing and discovering AI agents. It is designed for use in proof-of-concept (PoC) and MVP-stage projects.
 
