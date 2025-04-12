@@ -22,9 +22,10 @@ title: "AgentScape"
 email: marco.cello@scaleuplabs.vc
 description: >- # this means to ignore newlines until "baseurl:"
   An Open and Lightweight Directory for AI Agents.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "www.agentscape.cc" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  scaleuplabs
+domain: agentscape.github.io
+url: https://agentscape.github.io
+
 
 # Build settings
 theme: minima
