@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>AgentScape | A Minimal Registry for AI Agents.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="AgentScape" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Minimal Registry for AI Agents." />
+<meta property="og:description" content="A Minimal Registry for AI Agents." />
+<link rel="canonical" href="http://0.0.0.0:4000/" />
+<meta property="og:url" content="http://0.0.0.0:4000/" />
+<meta property="og:site_name" content="AgentScape" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="AgentScape" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"A Minimal Registry for AI Agents.","headline":"AgentScape","name":"AgentScape","url":"http://0.0.0.0:4000/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="AgentScape" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">AgentScape</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        <!-- Navigation links can be added here if needed in the future -->
+      </div>
+    </nav>
+  </div>
+</header><main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline"></h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="" itemprop="datePublished">
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="agentscape-a-lightweight-directory-for-ai-agents">AgentScape: A Lightweight Directory for AI Agents</h2>
+
+<p>AgentScape is a lightweight, standards-compliant API registry for exposing and discovering HTTP-accessible AI agents. It is designed for use in proof-of-concept (PoC) and MVP-stage projects.</p>
+
+<p><strong>API Base URL</strong>: <code class="language-plaintext highlighter-rouge">https://api.agentscape.cc</code></p>
+
+<h4 id="search-for-agents">Search for Agents</h4>
+
+<p>Query agents by name, organization, or tag.</p>
+
+<p><strong>GET <code class="language-plaintext highlighter-rouge">/agents</code></strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="s2">"https://api.agentscape.cc/agents?name=contoso"</span>
+</code></pre></div></div>
+
+<p>Python:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.agentscape.cc/agents"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"name"</span><span class="p">:</span> <span class="s">"contoso"</span><span class="p">})</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h4 id="register-an-agent-manually">Register an Agent Manually</h4>
+
+<p><strong>POST <code class="language-plaintext highlighter-rouge">/agents</code></strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST https://api.agentscape.cc/agents <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "name": "My Research Agent",
+    "description": "Summarizes academic content using LLMs.",
+    "endpoint": "https://myagent.org/api",
+    "openapi_url": "https://myagent.org/openapi.json",
+    "org_website": "https://myagent.org",
+    "org_email": "team@myagent.org",
+    "tags": ["nlp", "summarization", "research"]
+  }'</span>
+</code></pre></div></div>
+
+<h4 id="api-reference">API Reference</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Endpoint</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GET</td>
+      <td><code class="language-plaintext highlighter-rouge">/agents</code></td>
+      <td>List or search agents</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td><code class="language-plaintext highlighter-rouge">/agents/{id}</code></td>
+      <td>Fetch details of a single agent</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td><code class="language-plaintext highlighter-rouge">/agents</code></td>
+      <td>Register an agent manually</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="purpose-and-scope">Purpose and Scope</h4>
+
+<p>AgentScape is a minimal, open registry built to support:</p>
+
+<ul>
+  <li>Experimental deployments of AI agents during PoC/MVP phases</li>
+  <li>Projects using LLM-based or autonomous agents with public HTTP interfaces</li>
+  <li>Open agent interoperability in research and early-stage development</li>
+</ul>
+
+<p>It is not designed for production or security-critical use.</p>
+
+<h4 id="intended-audience">Intended Audience</h4>
+
+<p>This project is intended for:</p>
+
+<ul>
+  <li>AI researchers building or evaluating autonomous agents</li>
+  <li>Developers integrating with agent orchestration frameworks (e.g. LangChain, AutoGen)</li>
+  <li>Teams piloting multi-agent systems and looking for simple discovery tools</li>
+</ul>
+
+<h4 id="open-source-code">Open Source Code</h4>
+
+<p>AgentScape is open source and available on GitHub: <a href="https://github.com/ScaleUpLabs/agentscape">https://github.com/ScaleUpLabs/agentscape</a></p>
+
+<h4 id="contact">Contact</h4>
+
+<p>For collaboration or support, contact: <a href="mailto:marco.cello@scaleuplabs.vc">marco.cello@scaleuplabs.vc</a></p>
+
+  </div><a class="u-url" href="/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">AgentScape</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">AgentScape</li><li><a class="u-email" href="mailto:marco.cello@scaleuplabs.vc">marco.cello@scaleuplabs.vc</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/scaleuplabs"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">scaleuplabs</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A Minimal Registry for AI Agents.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
