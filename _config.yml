@@ -20,7 +20,7 @@
 
 title: "AgentScape"
 email: marco.cello@scaleuplabs.vc
-description: >- # this means to ignore newlines until "baseurl:"
+description:  # this means to ignore newlines until "baseurl:"
   An Open and Lightweight Directory for AI Agents.
 github_username:  scaleuplabs
 domain: agentscape.github.io
